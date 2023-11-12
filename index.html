@@ -238,15 +238,15 @@
         <p>2. There are still a few unfinished parts in the course discussion area</p>
     </div>
     <div class="mdui-dialog-actions">
-        <button class="mdui-btn mdui-ripple" onclick="inst.close();"
-        >OK</button>
+        <button class="mdui-btn mdui-ripple" mdui-dialog-close>OK</button>
     </div>
 </div>
 
+<button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-dialog="{target: '#versionDialog'}" style="display: none;" id="exampleOpen">Open</button>
+
     <script>
 
-        var inst = new mdui.Dialog('#versionDialog', {modal: true}, {history: false});
-
+        var dialog = document.getElementById('exampleOpen');
 
         function checkImagesLoaded() {
             const images = document.querySelectorAll('img');
@@ -265,9 +265,8 @@
                             document.getElementById('progress-container').style.display = 'none';
                             // 隐藏加载动画
                             document.getElementById('loading').style.display = 'none';
-                            // 弹出对话框
-                            inst.open();
-                            
+                            // 弹出对话框，点击按钮
+                            dialog.click();
                         }
                     });
                 }
@@ -277,13 +276,13 @@
                 document.body.style.overflow = 'auto';
                 document.getElementById('progress-container').style.display = 'none';
                 document.getElementById('loading').style.display = 'none';
-                inst.open();
+                dialog.click();
             }
             if (loadedCount === images.length) {
                 document.body.style.overflow = 'auto';
                 document.getElementById('progress-container').style.display = 'none';
                 document.getElementById('loading').style.display = 'none';
-                inst.open();
+                dialog.click();
             }
         }
 
