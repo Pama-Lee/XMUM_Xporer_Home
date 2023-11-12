@@ -192,6 +192,111 @@
             }
         }
 
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .dialog__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .dialog__content {
+            position: relative;
+            z-index: 2;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            background: #fff;
+            border-radius: 3px;
+        }
+
+        .dialog__header {
+            margin-bottom: 20px;
+        }
+
+        .dialog__title {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        .dialog__body {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .dialog__footer {
+            margin-top: 20px;
+        }
+
+        .action {
+            display: inline-block;
+            padding: 0 20px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+            background: #0077ff;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .action:hover {
+            background: #0066cc;
+        }
+
+        .action:active {
+            background: #0055aa;
+        }
+
+        .action + .action {
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .dialog__content {
+                margin: 20px;
+                padding: 10px;
+                width: auto;
+            }
+
+            .dialog__title {
+                font-size: 20px;
+            }
+
+            .dialog__body {
+                font-size: 14px;
+            }
+
+            .action {
+                height: 30px;
+                line-height: 30px;
+                font-size: 12px;
+            }
+        }
+
 
     </style>
 </head>
@@ -226,27 +331,39 @@
         <br>
     </div>
 
-<div class="mdui-dialog" id="versionDialog">
-    <div class="mdui-dialog-title">XMUM Xplorer 1.0</div>
-    <div class="mdui-dialog-content">
-        <p>这是第一个公开版本，处于公开测试阶段。以下为提前告知：</p>
-        <p>1. FeedBack 反馈功能暂未开启</p>
-        <p>2. 课程讨论区部分还有少许未完成部分</p>
-        <div class="mdui-divider"></div>
-        <p>This is the first public version, which is in the public test stage. The following is a pre-notification:</p>
-        <p>1. The FeedBack function is not yet enabled</p>
-        <p>2. There are still a few unfinished parts in the course discussion area</p>
-    </div>
-    <div class="mdui-dialog-actions">
-        <button class="mdui-btn mdui-ripple" mdui-dialog-close>OK</button>
+<div class="dialog" id="dialog">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+        <div class="dialog__header">
+            <div class="dialog__title">XMUM Xplorer 1.0</div>
+        </div>
+        <div class="dialog__body">
+            <p>这是第一个公开版本，处于公开测试阶段。以下为提前告知：</p>
+            <p>1. FeedBack 反馈功能暂未开启</p>
+            <p>2. 课程讨论区部分还有少许未完成部分</p>
+            <div class="mdui-divider"></div>
+            <p>This is the first public version, which is in the public test stage. The following is a pre-notification:</p>
+            <p>1. The FeedBack function is not yet enabled</p>
+            <p>2. There are still a few unfinished parts in the course discussion area</p>
+        </div>
+        <div class="dialog__footer">
+            <button class="action" onclick="closeDialog()">OK</button>
+        </div>
     </div>
 </div>
 
-<button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-dialog="{target: '#versionDialog'}" style="display: none;" id="exampleOpen">Open</button>
-
     <script>
 
-        var dialog = document.getElementById('exampleOpen');
+    function openDialog() {
+        var dialog = document.getElementById('dialog');
+        dialog.style.display = 'flex';
+        setTimeout(() => {
+            dialog.style.opacity = 1;
+        }, 100);
+    }
+    function closeDialog() { 
+        dialog.style.display = 'none';
+    }
 
         function checkImagesLoaded() {
             const images = document.querySelectorAll('img');
@@ -266,7 +383,7 @@
                             // 隐藏加载动画
                             document.getElementById('loading').style.display = 'none';
                             // 弹出对话框，点击按钮
-                            dialog.click();
+                            openDialog();
                         }
                     });
                 }
@@ -276,13 +393,13 @@
                 document.body.style.overflow = 'auto';
                 document.getElementById('progress-container').style.display = 'none';
                 document.getElementById('loading').style.display = 'none';
-                dialog.click();
+                openDialog();
             }
             if (loadedCount === images.length) {
                 document.body.style.overflow = 'auto';
                 document.getElementById('progress-container').style.display = 'none';
                 document.getElementById('loading').style.display = 'none';
-                dialog.click();
+               openDialog();
             }
         }
 
