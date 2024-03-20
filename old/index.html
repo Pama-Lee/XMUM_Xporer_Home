@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>XMUM Xplorer | Xiamen University Malaysia Coding Club</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i%7COpen+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic%7CPacifico" media="all">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<script src="https://unpkg.com/mdui@1.0.0/dist/js/mdui.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 0;
+        }
+
+        #title {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            background: white;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-align: center;
+            z-index: 1;
+            font-weight: 900;
+            font-family: "Roboto";
+            letter-spacing: 0.04em;
+        }
+
+        #title #download {
+            margin-top: 20px;
+        }
+
+        #logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        #logo img {
+            max-height: 100px;
+            border-radius: 20%;
+        }
+
+        #appicon {
+            text-align: center;
+            z-index: 1;
+            max-width: 200px;
+            border-radius: 20%;
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 1;
+            color: white;
+        }
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #333;
+            z-index: 9999;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #0077ff;
+            transition: width 0.3s;
+        }
+
+        .download-button {
+            height: 90px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-family: "Roboto";
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index:9999;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            #title {
+                font-size: 30px;
+            }
+
+            #logo {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            #logo img {
+                max-height: 40px !important;
+            }
+
+            #privacy-link {
+                font-size: 20px;
+            }
+
+            #appicon {
+                max-width: 150px;
+            }
+
+            #download {
+                margin-top: 10px;
+            }
+
+            .download-button {
+                height: 60px;
+                margin-top: 10px;
+            }
+
+            #footer {
+                font-size: 12px;
+            }
+
+            a {
+                font-size: 12px;
+            }
+        }
+
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .dialog__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .dialog__content {
+            position: relative;
+            z-index: 2;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            background: #fff;
+            border-radius: 3px;
+        }
+
+        .dialog__header {
+            margin-bottom: 20px;
+        }
+
+        .dialog__title {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        .dialog__body {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .dialog__footer {
+            margin-top: 20px;
+        }
+
+        .action {
+            display: inline-block;
+            padding: 0 20px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+            background: #0077ff;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .action:hover {
+            background: #0066cc;
+        }
+
+        .action:active {
+            background: #0055aa;
+        }
+
+        .action + .action {
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .dialog__content {
+                margin: 20px;
+                padding: 10px;
+                width: auto;
+            }
+
+            .dialog__title {
+                font-size: 20px;
+            }
+
+            .dialog__body {
+                font-size: 14px;
+            }
+
+            .action {
+                height: 30px;
+                line-height: 30px;
+                font-size: 12px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="loading">
+        <div class="spinner">
+            </div>
+    </div>
+    <video autoplay loop playsinline muted id="background-video" >
+        <source src="https://cdn.discordapp.com/attachments/484688552278360069/1210845310340038656/1.mp4?ex=65ec0a92&is=65d99592&hm=2221f081bf2d9fb8ceb48508136a4c1730c5cec7ac67e32bd4d0ef8975474925&" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div id="logo">
+        <img src="https://i.mji.rip/2023/10/24/eb3799ed6bc7e0260d7d9d4d59fea697.png" alt="Logo" style="max-height: 83px;">
+        <img src="https://www.xmu.edu.my/_upload/tpl/08/9f/2207/template2207/htmlRes/xxde_022.png" alt="Logo">
+    </div>
+    <div id="title">
+    <img id="appicon" src="https://i.mji.rip/2023/10/24/46d70b51f71d08b98a2f5e148af74d97.png" alt="Logo">
+    <br>
+        XMUM Xplorer
+        <div id="download">
+                <img class="download-button" src="https://i.mji.rip/2023/10/24/7ae7439926233d2243f535d3ba2e035b.png" alt="Download on the App Store" onclick="window.location.href='https://apps.apple.com/us/app/xmum-xplorer/id6467762211'" style="cursor: pointer;">
+                <img class="download-button" src="https://i.mji.rip/2023/10/24/1dbc60dceaea08483d99d8ffe81730d6.png" alt="Download on the Google Play" onclick="window.location.href='https://raw.githubusercontent.com/MINISTRY-of-CODES/App-Publish/main/XMUM%20Xplorer%201.0.4.apk'" style="cursor: pointer;">
+        </div>
+    </div>
+    <div id="footer">
+        <a href="https://www.xmu.edu.my/" target="_blank">Xiamen University Malaysia</a>, <a href="https://www.mocd.cc" target="_blank">Coding Club</a> &copy; 2023 All Rights Reserved.
+        <br>
+    </div>
+
+<!-- <div class="dialog" id="dialog">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+        <div class="dialog__header">
+            <div class="dialog__title">XMUM Xplorer 1.0</div>
+        </div>
+        <div class="dialog__body">
+            <p>这是第一个公开版本，处于公开测试阶段。以下为提前告知：</p>
+            <p>1. FeedBack 反馈功能暂未开启</p>
+            <p>2. 课程讨论区部分还有少许未完成部分</p>
+            <div class="mdui-divider"></div>
+            <p>This is the first public version, which is in the public test stage. The following is a pre-notification:</p>
+            <p>1. The FeedBack function is not yet enabled</p>
+            <p>2. There are still a few unfinished parts in the course discussion area</p>
+        </div>
+        <div class="dialog__footer">
+            <button class="action" onclick="closeDialog()">OK</button>
+        </div>
+    </div>
+</div> -->
+
+    <script>
+
+    function openDialog() {
+        var dialog = document.getElementById('dialog');
+        dialog.style.display = 'flex';
+        setTimeout(() => {
+            dialog.style.opacity = 1;
+        }, 100);
+    }
+    function closeDialog() { 
+        dialog.style.display = 'none';
+    }
+
+        function checkImagesLoaded() {
+            const images = document.querySelectorAll('img');
+            let loadedCount = 0;
+            
+            images.forEach((image) => {
+                if (image.complete) {
+                    console.log('image loaded');
+                    loadedCount++;
+                } else {
+                    image.addEventListener('load', () => {
+                        loadedCount++;
+                        // 当所有图片都加载完毕时
+                        if (loadedCount === images.length) {
+                            document.body.style.overflow = 'auto';
+                            document.getElementById('progress-container').style.display = 'none';
+                            // 隐藏加载动画
+                            document.getElementById('loading').style.display = 'none';
+                            // 弹出对话框，点击按钮
+                            // openDialog();
+                        }
+                    });
+                }
+            });
+            
+            if (loadedCount === 0) {
+                document.body.style.overflow = 'auto';
+                document.getElementById('progress-container').style.display = 'none';
+                document.getElementById('loading').style.display = 'none';
+                //openDialog();
+            }
+            if (loadedCount === images.length) {
+                document.body.style.overflow = 'auto';
+                document.getElementById('progress-container').style.display = 'none';
+                document.getElementById('loading').style.display = 'none';
+               //openDialog();
+            }
+        }
+
+        // 在页面加载时运行图片加载检查
+        window.addEventListener('load', checkImagesLoaded);
+
+        // 其余 JavaScript 代码保持不变
+        const video = document.getElementById('background-video');
+        const progressBar = document.getElementById('progress-bar');
+
+        video.addEventListener('loadedmetadata', function () {
+            const duration = video.duration;
+            progressBar.style.width = '100%';
+            setTimeout(() => {
+                progressBar.style.opacity = 0;
+            }, 500);
+        });
+    </script>
+</body>
+</html>
