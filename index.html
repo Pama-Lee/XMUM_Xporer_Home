@@ -1,433 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-      XMUM Xplorer | Cytono
-    </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XMUM Xplorer | Lumate</title>
+    <meta name="description" content="XMUM Xplorer helps students organize campus life, discover services, and connect with the XMUM community.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#4056d8">
     <meta name="robots" content="all,follow">
+    <link rel="icon" href="images/logo.png" type="image/png">
     <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="vendor/modal-video/css/modal-video.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600,800&amp;display=swap">
-    <link rel="stylesheet" href="css/device-mockups.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&amp;display=swap">
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="shortcut icon" href="img/favicon.png">
   </head>
   <body>
-    <!-- navbar-->
     <header class="header">
-      <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="navbar">
-        <div class="container"><a class="navbar-brand" href="index.html"><img src="images/cytono_logo.png" alt="" width="110"></a>
-          <button class="navbar-toggler navbar-toggler-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+      <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="navbar" aria-label="Primary navigation">
+        <div class="container">
+          <a class="navbar-brand brand-lockup" href="#hero" aria-label="Lumate home">
+            <span class="brand-symbol" aria-hidden="true">L</span>
+            <span class="brand-name">Lumate</span>
+          </a>
+          <div class="nav-actions-mobile">
+            <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to Chinese">中文</button>
+            <button class="navbar-toggler navbar-toggler-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link link-scroll active" href="#hero">Home <span class="sr-only">(current)</span></a></li>
-              <li class="nav-item"><a class="nav-link link-scroll" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link link-scroll" href="#services">Services</a></li>
-              <li class="nav-item"><a class="nav-link link-scroll" href="#confessions">
-                Confessions
-              </a></li>
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+              <li class="nav-item"><a class="nav-link link-scroll active" href="#hero" data-i18n="nav.home">Home</a></li>
+              <li class="nav-item"><a class="nav-link link-scroll" href="#about" data-i18n="nav.about">About</a></li>
+              <li class="nav-item"><a class="nav-link link-scroll" href="#services" data-i18n="nav.services">Services</a></li>
+              <li class="nav-item"><a class="nav-link link-scroll" href="#confessions" data-i18n="nav.confessions">Confessions</a></li>
+              <li class="nav-item nav-language-desktop">
+                <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to Chinese">中文</button>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <!-- Hero Section-->
-    <section class="hero bg-top py-5" id="hero" style="background: url(img/banner-4.png) no-repeat; background-size: 100% 80%">
-      <div class="container py-5">
-        <div class="row py-5">
-          <div class="col-lg-5 py-5">
-            <div class="text-center" style="margin-bottom: 20px;">
-              <img class="img-fluid" src="images/logo.png" alt="" style="border-radius: 10%; max-width: 200px;">
-            </div>
-            <h1>XMUM Xplorer</h1>
-            <p class="my-4 text-muted">
-              XMUM Xplorer is a mobile application that helps students to track their time and share their campus life. It is a cross-platform app that is available on both Google Play and App Store.
-            </p>
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mb-2 mb-lg-0"><a class="btn btn-primary btn-lg px-4" href="https://play.google.com/store/apps/details?id=app.xmum.xplorer.xmum_xplorer"> <i class="fab fa-google-play me-3"></i>Google Play</a></li>
-              <li class="list-inline-item"><a class="btn btn-primary btn-lg px-4" href="https://apps.apple.com/us/app/xmum-xplorer/id6467762211"> <i class="fab fa-app-store me-3"></i>App Store</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-6 ml-auto">
-            <div class="device-wrapper mx-auto">
-              <div class="device shadow" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                <div class="screen"><img class="img-fluid" src="images/screen.png" alt=""></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="bg-center py-0" id="about" style="background: url(img/service-bg.svg) no-repeat; background-size: cover">
-      <section class="about py-0">
-        <div class="container">
-          <p class="h6 text-uppercase text-primary">What is it all about?</p>
-          <h2 class="mb-5">
-            Convenient Campus Life 
-          </h2>
-          <div class="row pb-5 gy-4">
-            <div class="col-lg-4 col-md-6">
-              <!-- Services Item-->
-              <div class="card border-0 shadow rounded-lg py-4 text-start">
-                <div class="card-body p-5">
-                  <svg class="svg-icon svg-icon-light" style="width:60px;height:60px;color:#ff904e">
-                    <use xlink:href="#retail-bag-1"> </use>
-                  </svg>
-                  <h3 class="h4 my-4">
-                    Second Hand Market
-                  </h3>
-                  <p class="text-sm text-muted mb-0">
-                    Allowing students to sell and buy second-hand items, such as textbooks, clothes, and electronics.
-                  </p>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+        <div class="container position-relative">
+          <div class="row align-items-center g-5 hero-row">
+            <div class="col-lg-6 hero-copy">
+              <span class="eyebrow" data-i18n="hero.eyebrow">Campus life, simplified</span>
+              <div class="app-identity">
+                <img class="app-icon" src="images/logo.png" alt="XMUM Xplorer app icon" width="92" height="92">
+                <div>
+                  <h1>XMUM Xplorer</h1>
+                  <p class="hero-byline" data-i18n="hero.byline">A campus companion by Lumate</p>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <!-- Services Item-->
-              <div class="card border-0 shadow rounded-lg py-4 text-start">
-                <div class="card-body p-5">
-                  <svg class="svg-icon svg-icon-light" style="width:60px;height:60px;color:#39f8d2">
-                    <use xlink:href="#news-1"> </use>
-                  </svg>
-                  <h3 class="h4 my-4">
-                    Timetable
-                  </h3>
-                  <p class="text-sm text-muted mb-0">
-                    Providing students with a timetable that is automatically generated based on their course registration.
-                  </p>
-                </div>
+              <p class="hero-description" data-i18n="hero.description">Plan your schedule, discover campus services, trade pre-loved items, and share everyday moments—all in one app built for XMUM students.</p>
+              <div class="store-actions" aria-label="Download XMUM Xplorer">
+                <a class="store-button" href="https://play.google.com/store/apps/details?id=app.xmum.xplorer.xmum_xplorer" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-google-play" aria-hidden="true"></i>
+                  <span><small data-i18n="hero.getItOn">Get it on</small>Google Play</span>
+                </a>
+                <a class="store-button" href="https://apps.apple.com/us/app/xmum-xplorer/id6467762211" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-apple" aria-hidden="true"></i>
+                  <span><small data-i18n="hero.downloadOn">Download on the</small>App Store</span>
+                </a>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <!-- Services Item-->
-              <div class="card border-0 shadow rounded-lg py-4 text-start">
-                <div class="card-body p-5">
-                  <svg class="svg-icon svg-icon-light" style="width:60px;height:60px;color:#8190ff">
-                    <use xlink:href="#chat-bubble-1"> </use>
-                  </svg>
-                  <h3 class="h4 my-4">
-                    Campus Confessions
-                  </h3>
-                  <p class="text-sm text-muted mb-0">
-                    Allowing students to share their campus life anonymously and communicate with others.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- 下载量和使用人数 -->
-      <section id="users-data" class="py-5">
-        <!-- 四个卡片 -->
-        <div class="container">
-          <h2 class="mb-5">
-            Our Achievements
-          </h2>
-          <div class="row">
-            <div class="col-lg-3 col-md-6">
-              <div class="card border-0 shadow rounded-lg text-start">
-                <div class="card-body p-4">
-                  <h3 class="h4 my-1">
-                    Downloads
-                  </h3>
-                  <h3 class="mb-0 text-primary">
-                    8000+
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="card border-0 shadow rounded-lg text-start">
-                <div class="card-body p-4">
-                  <h3 class="h4 my-1">
-                    Active Users
-                  </h3>
-                  <h3 class="mb-0 text-primary">
-                    6000+
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="card border-0 shadow rounded-lg text-start">
-                <div class="card-body p-4">
-                  <h3 class="h4 my-1">
-                    Daily Active Users
-                  </h3>
-                  <h3 class="mb-0 text-primary">
-                    4500+
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <div class="card border-0 shadow rounded-lg text-start">
-                <div class="card-body p-4">
-                  <h3 class="h4 my-1">
-                    Average Rating
-                  </h3>
-                  <h3 class="mb-0 text-primary">
-                    4.6
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>  
-          </div>
-      </section>
-      <section class="with-pattern-1 py-5" id="services">
-        <div class="container py-5">
-          <div class="row align-items-center mb-5 gy-5">
-            <div class="col-lg-6"><img class="img-fluid w-100 px-lg-5" src="img/objects.svg" alt=""></div>
             <div class="col-lg-6">
-              <h2>
-                The Best Platform for Campus Merchants
-              </h2>
-              <p class="text-muted">
-                XMUM Xplorer provides a platform for campus merchants to promote their products and services. It is a great opportunity for merchants to reach out to students and promote their products and services.
-              </p>
-              <!-- 跳转到邮件 -->
-              <button class="btn btn-primary" type="button" onclick="location.href='mailto:fb@mocd.cc'">
-                <i class="fas fa-envelope me-2"></i>
-                Contact us
+              <div class="phone-stage" aria-label="XMUM Xplorer app preview">
+                <div class="phone-glow" aria-hidden="true"></div>
+                <div class="phone-frame">
+                  <div class="phone-speaker" aria-hidden="true"></div>
+                  <img src="images/screen.png" alt="XMUM Xplorer home screen preview">
+                </div>
+                <div class="floating-chip chip-top" data-i18n="hero.chipSchedule">Smart schedule</div>
+                <div class="floating-chip chip-bottom" data-i18n="hero.chipCommunity">Campus community</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="about">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow" data-i18n="about.eyebrow">Designed around student life</span>
+            <h2 data-i18n="about.title">Everything you need around campus</h2>
+            <p data-i18n="about.subtitle">Useful tools and a welcoming community, ready whenever your day takes an unexpected turn.</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+              <article class="feature-card h-100">
+                <div class="icon-tile icon-orange"><svg class="svg-icon"><use xlink:href="#retail-bag-1"></use></svg></div>
+                <h3 data-i18n="about.marketTitle">Second-hand Market</h3>
+                <p data-i18n="about.marketText">Buy and sell textbooks, electronics, clothing, and everyday essentials within the student community.</p>
+              </article>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <article class="feature-card h-100">
+                <div class="icon-tile icon-teal"><svg class="svg-icon"><use xlink:href="#news-1"></use></svg></div>
+                <h3 data-i18n="about.timetableTitle">Timetable</h3>
+                <p data-i18n="about.timetableText">Keep classes and daily plans organized with a schedule generated from your registered courses.</p>
+              </article>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <article class="feature-card h-100">
+                <div class="icon-tile icon-purple"><svg class="svg-icon"><use xlink:href="#chat-bubble-1"></use></svg></div>
+                <h3 data-i18n="about.confessionTitle">Campus Confessions</h3>
+                <p data-i18n="about.confessionText">Share campus moments anonymously, join conversations, and feel closer to the people around you.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section metrics-section" id="users-data">
+        <div class="container">
+          <div class="section-heading section-heading-light">
+            <span class="eyebrow eyebrow-light" data-i18n="metrics.eyebrow">Growing together</span>
+            <h2 data-i18n="metrics.title">Our community in numbers</h2>
+          </div>
+          <div class="row g-3 g-md-4">
+            <div class="col-6 col-lg-3"><div class="metric-card"><strong>8,000+</strong><span data-i18n="metrics.downloads">Downloads</span></div></div>
+            <div class="col-6 col-lg-3"><div class="metric-card"><strong>6,000+</strong><span data-i18n="metrics.activeUsers">Active users</span></div></div>
+            <div class="col-6 col-lg-3"><div class="metric-card"><strong>4,500+</strong><span data-i18n="metrics.dailyUsers">Daily active users</span></div></div>
+            <div class="col-6 col-lg-3"><div class="metric-card"><strong>4.6</strong><span data-i18n="metrics.rating">Average rating</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="row align-items-center g-5 service-intro">
+            <div class="col-lg-6 order-2 order-lg-1">
+              <img class="service-illustration" src="img/objects.svg" alt="Illustration of campus commerce tools">
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2">
+              <span class="eyebrow" data-i18n="services.eyebrow">For campus merchants</span>
+              <h2 data-i18n="services.title">A better way to reach students</h2>
+              <p class="section-copy" data-i18n="services.description">XMUM Xplorer gives campus merchants a focused place to introduce products and services, manage offers, and understand student demand.</p>
+              <button class="btn btn-secondary-disabled" type="button" disabled aria-disabled="true">
+                <i class="fas fa-clock" aria-hidden="true"></i>
+                <span data-i18n="common.contactUnavailable">Contact temporarily unavailable</span>
               </button>
             </div>
           </div>
-          <div class="row align-items-center gy-5">
-            <div class="col-lg-6">
-              <h2>
-                Features
-              </h2>
-              <p class="text-muted">
-                <!-- 商家的 -->
-                Merchants in campus and out of campus can promote their products and services on the platform. They can also manage their products and orders on the platform.
-              </p>
-              <ul class="list-check">
-                <li class="text-muted mb-2">
-                  Merchant Background
-                </li>
-                <li class="text-muted mb-2">
-                  Product Management
-                </li>
-                <li class="text-muted mb-2">
-                  Voucher Management
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <div class="row gy-4">
-                <div class="col-lg-6 col-sm-6">
-                  <!-- Services Item-->
-                  <div class="card border-0 shadow rounded-lg text-start px-2">
-                    <div class="card-body px py-5">
-                      <svg class="svg-icon" style="width:40px;height:40px;color:#ff904e">
-                        <use xlink:href="#document-saved-1"> </use>
-                      </svg>
-                      <h3 class="h5 my-3">Online Marketing</h3>
-                      <p class="text-sm mb-0 text-muted">
-                        Can promote products and services on the platform.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                  <!-- Services Item-->
-                  <div class="card border-0 shadow rounded-lg text-start px-2">
-                    <div class="card-body px py-5">
-                      <svg class="svg-icon" style="width:40px;height:40px;color:#39f8d2">
-                        <use xlink:href="#map-marker-1"> </use>
-                      </svg>
-                      <h3 class="h5 my-3">Track Orders</h3>
-                      <p class="text-sm mb-0 text-muted">
-                        Can manage products and orders on the platform.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                  <!-- Services Item-->
-                  <div class="card border-0 shadow rounded-lg text-start px-2">
-                    <div class="card-body px py-5">
-                      <svg class="svg-icon" style="width:40px;height:40px;color:#8190ff">
-                        <use xlink:href="#arrow-target-1"> </use>
-                      </svg>
-                      <h3 class="h5 my-3">Market analysis</h3>
-                      <p class="text-sm mb-0 text-muted">
-                        Can view the sales and user data on the platform.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                  <!-- Services Item-->
-                  <div class="card border-0 shadow rounded-lg text-start px-2">
-                    <div class="card-body px py-5">
-                      <svg class="svg-icon" style="width:40px;height:40px;color:#ff634b">
-                        <use xlink:href="#sorting-1"> </use>
-                      </svg>
-                      <h3 class="h5 my-3">Full Settings</h3>
-                      <p class="text-sm mb-0 text-muted">
-                        Can set the product price, discount, and other settings on the platform.
-                      </p>
-                    </div>
-                  </div>
+
+          <div class="service-panel">
+            <div class="row align-items-center g-5">
+              <div class="col-lg-5">
+                <span class="eyebrow" data-i18n="features.eyebrow">Merchant toolkit</span>
+                <h2 data-i18n="features.title">Manage your campus presence</h2>
+                <p class="section-copy" data-i18n="features.description">Tools for merchants inside and outside campus to promote products, manage orders, and learn what works.</p>
+                <ul class="check-list">
+                  <li data-i18n="features.profile">Merchant profile</li>
+                  <li data-i18n="features.products">Product management</li>
+                  <li data-i18n="features.vouchers">Voucher management</li>
+                </ul>
+              </div>
+              <div class="col-lg-7">
+                <div class="row g-3">
+                  <div class="col-sm-6"><article class="mini-feature"><div class="mini-icon"><svg class="svg-icon"><use xlink:href="#document-saved-1"></use></svg></div><div><h3 data-i18n="features.marketingTitle">Online marketing</h3><p data-i18n="features.marketingText">Promote products and services to the right campus audience.</p></div></article></div>
+                  <div class="col-sm-6"><article class="mini-feature"><div class="mini-icon"><svg class="svg-icon"><use xlink:href="#map-marker-1"></use></svg></div><div><h3 data-i18n="features.ordersTitle">Order tracking</h3><p data-i18n="features.ordersText">Keep products and customer orders organized in one place.</p></div></article></div>
+                  <div class="col-sm-6"><article class="mini-feature"><div class="mini-icon"><svg class="svg-icon"><use xlink:href="#arrow-target-1"></use></svg></div><div><h3 data-i18n="features.analysisTitle">Market insights</h3><p data-i18n="features.analysisText">Understand sales activity and changing student needs.</p></div></article></div>
+                  <div class="col-sm-6"><article class="mini-feature"><div class="mini-icon"><svg class="svg-icon"><use xlink:href="#sorting-1"></use></svg></div><div><h3 data-i18n="features.settingsTitle">Flexible settings</h3><p data-i18n="features.settingsText">Adjust pricing, discounts, vouchers, and product details.</p></div></article></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </section>
-    <section class="p-0" id="confessions" style="background: url(img/testimonials-bg.png) no-repeat; background-size: 40% 100%; background-position: left center">
-      <div class="container text-center">
-        <p class="h6 text-uppercase text-primary">
-          Confessions
-        </p>
-        <h2 class="mb-5">
-          What People Say
-        </h2>
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <div class="swiper testimonials-slider">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide h-auto">
-                  <div class="mx-3 mx-lg-5 my-5 pt-3">
-                    <div class="card shadow rounded-lg px-4 py-5 px-lg-5 with-pattern bg-white border-0">
-                      <div class="card-body index-forward pt-5 rounded-lg">
-                        <div class="testimonial-img"><img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXcDUUbMnIpUuQjtdp9uqnfHLFBHKuK1zroke6_ASTbcWwGv13INFWADh7OPMkO_amAlQ&usqp=CAU" alt="" width="100"/></div>
-                        <p class="lead text-muted mb-5">
-                          谁的船丢了<br> 不然俺拾嘞
-                        </p>
-                        <img src="images/confession1.jpg" alt="" class="mb-4" style="width: 100%;">
-                        <h5 class="mb-0">User</h5>
-                        <p class="text-primary mb-0 text-sm">
-                          Anonymous
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide h-auto">
-                  <div class="mx-3 mx-lg-5 my-5 pt-3">
-                    <div class="card shadow rounded-lg px-4 py-5 px-lg-5 with-pattern bg-white border-0">
-                      <div class="card-body index-forward pt-5 rounded-lg">
-                        <div class="testimonial-img"><img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXcDUUbMnIpUuQjtdp9uqnfHLFBHKuK1zroke6_ASTbcWwGv13INFWADh7OPMkO_amAlQ&usqp=CAU" alt="" width="100"/></div>
-                        <p class="lead text-muted mb-5">
-                          可爱捏 (看保安上下班心情好好
-                        </p>
-                        <img src="images/confession2.jpg" alt="" class="mb-4" style="width: 100%;">
-                        <h5 class="mb-0">
-                          User
-                        </h5>
-                        <p class="text-primary mb-0 text-sm">
-                          Anonymous
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide h-auto">
-                  <div class="mx-3 mx-lg-5 my-5 pt-3">
-                    <div class="card shadow rounded-lg px-4 py-5 px-lg-5 with-pattern bg-white border-0">
-                      <div class="card-body index-forward pt-5 rounded-lg">
-                        <div class="testimonial-img"><img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXcDUUbMnIpUuQjtdp9uqnfHLFBHKuK1zroke6_ASTbcWwGv13INFWADh7OPMkO_amAlQ&usqp=CAU" alt="" width="100"/></div>
-                        <p class="lead text-muted mb-5">
-                          哇靠 这是哪组cs 做的啊 真的是造福人群 爱了 祝他们人人 4.0
-                        </p>
-                        <img src="images/confession3.jpg" alt="" class="mb-4" style="width: 100%;">
-                        <h5 class="mb-0">
-                          User
-                        </h5>
-                        <p class="text-primary mb-0 text-sm">
-                          Anonymous
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+      <section class="section confessions-section" id="confessions">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow" data-i18n="confessions.eyebrow">From the community</span>
+            <h2 data-i18n="confessions.title">Campus moments, shared freely</h2>
+            <p data-i18n="confessions.subtitle">A glimpse of the lighthearted conversations happening around XMUM.</p>
+          </div>
+          <div class="swiper testimonials-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide h-auto">
+                <article class="confession-card">
+                  <div class="quote-mark" aria-hidden="true">“</div>
+                  <p class="confession-text" data-i18n="confessions.quote1">Whose boat got lost? Otherwise, I'm taking it!</p>
+                  <img src="images/confession1.jpg" alt="A campus moment shared anonymously" loading="lazy">
+                  <div class="anonymous-user"><span class="avatar-placeholder">X</span><div><strong data-i18n="common.user">User</strong><small data-i18n="common.anonymous">Anonymous</small></div></div>
+                </article>
               </div>
-              <div class="swiper-pagination"></div>
+              <div class="swiper-slide h-auto">
+                <article class="confession-card">
+                  <div class="quote-mark" aria-hidden="true">“</div>
+                  <p class="confession-text" data-i18n="confessions.quote2">So cute—seeing the security guards finish their shifts really lifted my mood.</p>
+                  <img src="images/confession2.jpg" alt="A campus moment shared anonymously" loading="lazy">
+                  <div class="anonymous-user"><span class="avatar-placeholder">X</span><div><strong data-i18n="common.user">User</strong><small data-i18n="common.anonymous">Anonymous</small></div></div>
+                </article>
+              </div>
+              <div class="swiper-slide h-auto">
+                <article class="confession-card">
+                  <div class="quote-mark" aria-hidden="true">“</div>
+                  <p class="confession-text" data-i18n="confessions.quote3">Which CS group built this? It genuinely helps everyone. Love it—wishing them all a 4.0!</p>
+                  <img src="images/confession3.jpg" alt="A campus moment shared anonymously" loading="lazy">
+                  <div class="anonymous-user"><span class="avatar-placeholder">X</span><div><strong data-i18n="common.user">User</strong><small data-i18n="common.anonymous">Anonymous</small></div></div>
+                </article>
+              </div>
             </div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
-      </div>
-    </section><a class="scroll-top-btn" id="scrollTop" href="#!"><i class="fas fa-long-arrow-alt-up"></i></a>
-    <footer class="with-pattern-1 position-relative pt-5">
-      <div class="container py-5">
-        <div class="row gy-4">
-          <div class="col-lg-3"><img class="mb-4" src="images/cytono_logo.png" alt="" width="110">
-            <p class="text-muted">
-              Cytono is a Start Up company that focuses on providing the best services for students.
-            </p>
-          </div>
-          <div class="col-lg-2">
-            <h2 class="h5 mb-4">Quick Links</h2>
-            <div class="d-flex">
-              <ul class="list-unstyled d-inline-block me-4 mb-0">
-                <li class="mb-2"><a class="footer-link" href="https://www.cytono.com">About us</a></li>
-                <li class="mb-2"><a class="footer-link" href="mailto:fb@mocd.cc">Contact us</a></li>
-                <li class="mb-2"><a class="footer-link" href="#!">Services</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <h2 class="h5 mb-4">Services</h2>
-            <div class="d-flex">
-              <ul class="list-unstyled me-4 mb-0">
-                <li class="mb-2"><a class="footer-link" href="#!">History</a></li>
-                <li class="mb-2"><a class="footer-link" href="#!">About us</a></li>
-                <li class="mb-2"><a class="footer-link" href="#!">Contact us</a></li>
-                <li class="mb-2"><a class="footer-link" href="#!">Services</a></li>
-              </ul>
-            </div>
-          </div>
+      </section>
+    </main>
+
+    <a class="scroll-top-btn" id="scrollTop" href="#hero" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row gy-4 align-items-start">
           <div class="col-lg-5">
-            <h2 class="h5 mb-4">Contact Info</h2>
-            <ul class="list-unstyled me-4 mb-3">
-              <li class="mb-2 text-muted">Cytono, Ministry of CODE</li>
-              <li class="mb-2"><a class="footer-link" href="mailto:fb@mocd.cc">
-                fb@mocd.cc
-              </a></li>
-            </ul>
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item"><a class="social-link" href="https://www.facebook.com/xmum.coding.club"><i class="fab fa-facebook-f"></i></a></li>
-              <li class="list-inline-item"><a class="social-link" href="https://www.instagram.com/xmum_codingclub/"><i class="fab fa-instagram"></i></a></li>
+            <a class="brand-lockup footer-brand" href="#hero" aria-label="Lumate home"><span class="brand-symbol" aria-hidden="true">L</span><span class="brand-name">Lumate</span></a>
+            <p data-i18n="footer.description">Lumate creates practical digital experiences that make student life feel simpler and more connected.</p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2 data-i18n="footer.product">Product</h2>
+            <ul>
+              <li><a href="#about" data-i18n="nav.about">About</a></li>
+              <li><a href="#services" data-i18n="nav.services">Services</a></li>
+              <li><a href="#confessions" data-i18n="nav.confessions">Confessions</a></li>
             </ul>
           </div>
+          <div class="col-6 col-lg-4">
+            <h2 data-i18n="footer.contact">Contact</h2>
+            <p class="contact-status"><span class="status-dot" aria-hidden="true"></span><span data-i18n="common.contactUnavailable">Contact temporarily unavailable</span></p>
+          </div>
         </div>
-      </div>
-      <div class="copyrights">       
-        <div class="container text-center py-4">
-          <p class="mb-0 text-muted text-sm">Cytono&copy;, Ministry of CODE. <a target="_blank" href="https://www.mocd.cc">MOC</a>.</p>
+        <div class="footer-bottom">
+          <p>© <span id="currentYear"></span> Lumate. <span data-i18n="footer.rights">All rights reserved.</span></p>
+          <span>XMUM Xplorer</span>
         </div>
       </div>
     </footer>
-    <!-- JavaScript files-->
+
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="vendor/modal-video/js/modal-video.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/front.js"></script>
     <script>
       function injectSvgSprite(path) {
-          var ajax = new XMLHttpRequest();
-          ajax.open("GET", path, true);
-          ajax.send();
-          ajax.onload = function(e) {
+        var ajax = new XMLHttpRequest();
+        ajax.open("GET", path, true);
+        ajax.send();
+        ajax.onload = function () {
           var div = document.createElement("div");
-          div.className = 'd-none';
+          div.className = "d-none";
           div.innerHTML = ajax.responseText;
           document.body.insertBefore(div, document.body.childNodes[0]);
-          }
+        };
       }
-      injectSvgSprite('icons/orion-svg-sprite.svg'); 
-      
+      injectSvgSprite("icons/orion-svg-sprite.svg");
     </script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKCpOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </body>
 </html>

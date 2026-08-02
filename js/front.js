@@ -6,18 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	======================================== */
     var testimonialsSlider = new Swiper(".testimonials-slider", {
         slidesPerView: 1,
-        spaceBetween: 10,
+        spaceBetween: 18,
+        autoHeight: true,
         pagination: {
             el: ".swiper-pagination",
             dynamicBullets: true,
             clickable: true,
         },
     });
-
-    /* =====================================
-		VIDEO MODAL
-	======================================== */
-    new ModalVideo(".js-modal-btn");
 
     /* =====================================
 		NAVBAR BEHAVIOR
@@ -46,8 +42,26 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("scrollTop")
         .addEventListener("click", function (e) {
             e.preventDefault();
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
+
+    /* =====================================
+		MOBILE NAVIGATION
+	======================================== */
+    var navigation = document.getElementById("navbarSupportedContent");
+    document.querySelectorAll(".navbar-nav .nav-link").forEach(function (link) {
+        link.addEventListener("click", function () {
+            if (window.innerWidth < 992 && navigation.classList.contains("show")) {
+                bootstrap.Collapse.getOrCreateInstance(navigation).hide();
+            }
+        });
+    });
+
+    /* =====================================
+		CURRENT YEAR
+	======================================== */
+    var currentYear = document.getElementById("currentYear");
+    if (currentYear) currentYear.textContent = new Date().getFullYear();
 
     /* =====================================================
 		BOOTSTRAP SCROLLSPY
